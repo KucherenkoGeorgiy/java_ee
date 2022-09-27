@@ -1,0 +1,28 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Web-App</display-name>
+  <servlet>
+    <servlet-name>ArraySort</servlet-name>
+    <servlet-class>com.hillel.webapp.servlets.arraySort</servlet-class>
+
+  </servlet>
+  <servlet>
+    <servlet-name>findWords</servlet-name>
+    <servlet-class>com.hillel.webapp.servlets.findWords</servlet-class>
+
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>ArraySort</servlet-name>
+    <url-pattern>/arraysort</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>findWords</servlet-name>
+    <url-pattern>/findwords</url-pattern>
+  </servlet-mapping>
+
+</web-app>
