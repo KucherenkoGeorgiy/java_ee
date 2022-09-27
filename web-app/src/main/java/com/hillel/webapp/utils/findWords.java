@@ -1,7 +1,6 @@
-package com.hillel.webapp.servlets;
+package com.hillel.webapp.utils;
 
 import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -35,7 +34,7 @@ public class findWords extends HttpServlet {
     }
 
     protected String processRequest(HttpServletResponse response) {
-        String result="";
+        String result = "";
         response.setContentType("text/plain");
         ServletContext cntxt = this.getServletContext();
         String fName = "/WEB-INF/classes/input.txt";

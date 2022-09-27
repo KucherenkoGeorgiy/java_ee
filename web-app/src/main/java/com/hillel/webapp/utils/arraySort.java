@@ -1,4 +1,4 @@
-package com.hillel.webapp.servlets;
+package com.hillel.webapp.utils;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
