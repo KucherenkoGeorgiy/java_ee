@@ -6,19 +6,10 @@
     <display-name>Web-App</display-name>
     <servlet>
         <servlet-name>arraySort</servlet-name>
-        <servlet-class>com.hillel.webapp.utils.arraySort</servlet-class>
+        <servlet-class>com.hillel.webapp.utils.ArraySort</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>findWords</servlet-name>
-        <servlet-class>com.hillel.webapp.utils.findWords</servlet-class>
+        <servlet-class>com.hillel.webapp.utils.FindWords</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>arraySort</servlet-name>
-        <url-pattern>/arraysort</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>findWords</servlet-name>
-        <url-pattern>/findwords</url-pattern>
-    </servlet-mapping>
-
 </web-app>
