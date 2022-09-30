@@ -5,11 +5,11 @@
 <web-app>
     <display-name>Web-App</display-name>
     <servlet>
-        <servlet-name>arraySort</servlet-name>
+        <servlet-name>ArraySort</servlet-name>
         <servlet-class>com.hillel.webapp.utils.ArraySort</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>findWords</servlet-name>
+        <servlet-name>FindWords</servlet-name>
         <servlet-class>com.hillel.webapp.utils.FindWords</servlet-class>
     </servlet>
 </web-app>
