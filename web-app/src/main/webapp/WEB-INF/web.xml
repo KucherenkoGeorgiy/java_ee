@@ -2,14 +2,6 @@
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+<web-app >
     <display-name>Web-App</display-name>
-    <servlet>
-        <servlet-name>ArraySort</servlet-name>
-        <servlet-class>com.hillel.webapp.utils.ArraySort</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>FindWords</servlet-name>
-        <servlet-class>com.hillel.webapp.utils.FindWords</servlet-class>
-    </servlet>
 </web-app>
