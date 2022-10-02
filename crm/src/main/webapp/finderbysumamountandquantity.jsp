@@ -12,13 +12,11 @@
 Выбери номер заказа из списка:</p>
 
 <p>
-<form action="http://localhost:8080/crm/test" method="post">
+<form action="http://localhost:8080/crm/finderbysumandquantity" method="post">
 
-    <select name="chooseOrder" required="required" size="1">
-        <c:forEach items="${testList}" var="item">
-            <option value = "${item.getId()}">${item.getId()} dated ${item.getDate()}</option>
-        </c:forEach>
-    </select>
+    <input type="text" name="chooseSum">  input total amount here<br>
+    <input type="text" name="chooseQuantity" >  input quantity of different goods here<br>
+
 	<input name="submitChoosing" type="submit" value="Submit" />
 </form>
 

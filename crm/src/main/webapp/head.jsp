@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <table align="center" border="0" cellpadding="1" cellspacing="1">
@@ -12,10 +12,15 @@
 			<td style="text-align:center">Удалить все заказы, в которых присутствует заданное количество заданного товара</td>
 		</tr>
 		<tr>
-			<td style="text-align:center"><input name="getDetailedOrderByOrderId" type="button" value="Run" /></td>
-			<td style="text-align:center"><input name="getByTotMaxAndQuantityOfDifGoods" type="button" value="Run" /></td>
-			<td style="text-align:center"><input name="getOrdersThatContainTheProduct" type="button" value="Run" /></td>
-			<td style="text-align:center"><input name="getOrdersThatDoNotContainTheProductAndContainCurDate" type="button" value="Run" /></td>
+
+			<td style="text-align:center"><form action="http://localhost:8080/crm/test" method="get">
+			<input name="getDetailedOrderByOrderId" type="submit" value="Run" /></form></td>
+			<td style="text-align:center"><form action="http://localhost:8080/crm/finderbysumandquantity" method="get">
+			<input name="getByTotMaxAndQuantityOfDifGoods" type="submit" value="Run" /></form></td>
+			<td style="text-align:center"><form action="http://localhost:8080/crm/chooseproduct" method="get">
+			<input name="getOrdersThatContainTheProduct" type="submit" value="Run" /></form></td>
+			<td style="text-align:center"><form action="http://localhost:8080/crm/chooseproductwithfilter" method="get">
+			<input name="getOrdersThatDoNotContainTheProductAndContainCurDate" type="submit" value="Run" /></form></td>
 			<td style="text-align:center"><input name="addNewOrderWithCurDate" type="button" value="Run" /></td>
 			<td style="text-align:center"><input name="deleteOrdersThatContainTheProductWithQuantity" type="button" value="Run" /></td>
 		</tr>

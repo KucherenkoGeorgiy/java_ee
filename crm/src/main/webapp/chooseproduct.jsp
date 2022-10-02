@@ -9,14 +9,14 @@
 <body>
 <jsp:include page="head.jsp"/>
 <p><br />
-Выбери номер заказа из списка:</p>
+Choose the product:</p>
 
 <p>
-<form action="http://localhost:8080/crm/test" method="post">
+<form action="http://localhost:8080/crm/chooseproduct" method="post">
 
-    <select name="chooseOrder" required="required" size="1">
-        <c:forEach items="${testList}" var="item">
-            <option value = "${item.getId()}">${item.getId()} dated ${item.getDate()}</option>
+    <select name="chooseProduct" required="required" size="1">
+        <c:forEach items="${productList}" var="item">
+            <option value = "${item.getId()}">${item.getName()}</option>
         </c:forEach>
     </select>
 	<input name="submitChoosing" type="submit" value="Submit" />
