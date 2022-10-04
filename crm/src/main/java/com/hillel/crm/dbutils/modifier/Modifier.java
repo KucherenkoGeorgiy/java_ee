@@ -22,7 +22,7 @@ public class Modifier {
     public static String SQL_GET_NUMBER_OF_LAST_ORDER = "SELECT * FROM schema_orders.orders ORDER BY id DESC LIMIT 1;";
 
 
-    public void createNewOrder(List<RecordsOfOrder> recordsOfOrder) {
+    public int createNewOrder(List<RecordsOfOrder> recordsOfOrder) {
         if (!recordsOfOrder.isEmpty()) {
             Connection connection = ConnectionProvider.provideConnection();
             if (connection != null) {
@@ -37,12 +37,18 @@ public class Modifier {
                                 .format(SQL_PATTERN_CREATE_NEW_RECORDS_OF_ORDER,
                                         order_id, ofOrder.getProduct().getId(), ofOrder.getQuantityOfProduct()));
                     }
+                    return order_id;
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return -1;
                 } finally {
                     closeConnection(connection);
                 }
+            } else {
+                return -1;
             }
+        } else {
+            return -1;
         }
     }
 

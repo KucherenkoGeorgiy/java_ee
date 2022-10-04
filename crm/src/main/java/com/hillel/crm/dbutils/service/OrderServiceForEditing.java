@@ -24,17 +24,20 @@ public class OrderServiceForEditing {
         return recordsOfOrderRepository.getAllRecordsFromCurDate();
     }
 
-    public void addNewOrderWithCurDate() {
-        modifier.createNewOrder(getAllRecordsFromCurDate());
+    public int addNewOrderWithCurDate() {
+        return modifier.createNewOrder(getAllRecordsFromCurDate());
     }
 
-    public void deleteOrdersThatContainTheProductWithQuantity(int productID, int quantityOfProduct) {
+    public List<Order> deleteOrdersThatContainTheProductWithQuantity(int productID, int quantityOfProduct) {
         List<Order> orders = ordersRepository.getNonDetOrdersByProductIDAndQuantity(productID, quantityOfProduct);
 
         if (!orders.isEmpty()) {
             orders.forEach(Order ->
                     Order.setRecordsOfOrder(recordsOfOrderRepository.getRecordsOfOrderByOrderID(Order.getId())));
             modifier.deleteAllOrders(orders);
+            return orders;
+        } else {
+            return List.of();
         }
     }
 }

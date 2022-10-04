@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 @WebServlet("/chooseproduct")
 public class ChooseProduct extends HttpServlet {
@@ -16,10 +15,8 @@ public class ChooseProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
-        response.setContentType("text/html");
 
         req.setAttribute("productList", orderServiceForReading.getAllProducts());
-
         req.getRequestDispatcher("/chooseproduct.jsp").forward(req, response);
     }
 
@@ -27,13 +24,9 @@ public class ChooseProduct extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         int productId = Integer.parseInt(req.getParameter("chooseProduct"));
         OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
-
         String infoString = "Below you can find search results for following filters:\n"
                 + " must contain product: "
-                + orderServiceForReading.getAllProducts().stream()
-                .filter(a -> a.getId() == productId).toList().get(0).getName();
-
-        response.setContentType("text/html");
+                + orderServiceForReading.getProductById(productId).getName();
 
         req.setAttribute("listOfOrders", orderServiceForReading.getOrdersThatContainTheProduct(productId));
         req.setAttribute("filtersOfSearch", infoString);

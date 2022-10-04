@@ -4,25 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Test JSP</title>
+<title>Choose the order</title>
 </head>
 <body>
-<jsp:include page="head.jsp"/>
-<p><br />
-Выбери номер заказа из списка:</p>
-
-<p>
-<form action="http://localhost:8080/crm/finderbysumandquantity" method="post">
-
-    <input type="text" name="chooseSum">  input total amount here<br>
-    <input type="text" name="chooseQuantity" >  input quantity of different goods here<br>
-
-	<input name="submitChoosing" type="submit" value="Submit" />
-</form>
-
-&nbsp; &nbsp; &nbsp;
-</p>
-
-<p>&nbsp;</p>
+	<jsp:include page="head.jsp"/>
+	<p>Выбери номер заказа из списка:</p>
+	<p>
+		<form action="http://localhost:8080/crm/finderbysumandquantity" method="post">
+			<input type="text" name="chooseSum">  input total amount here<br>
+			<input type="text" name="chooseQuantity" >  input quantity of different goods here<br>
+			<input name="submitChoosing" type="submit" value="Submit" />
+		</form>
+	</p>
 </body>
 </html>

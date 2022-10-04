@@ -1,5 +1,6 @@
 package com.hillel.webapp.utils;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,7 +14,23 @@ import java.util.regex.Pattern;
 public class FindWords extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        req.getRequestDispatcher("/findWords.html").forward(req, resp);
+    }
+
+    private int countHowManyTimesSubstringMatches(String sourceText, String usersInput) {
+        Pattern p = Pattern.compile(usersInput.toLowerCase());
+        Matcher m = p.matcher(sourceText.toLowerCase());
+        int counter = 0;
+
+        while (m.find()) {
+            counter++;
+        }
+        return counter;
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String usersInput = req.getParameter("usersinput");
         InputStream is = getClass().getClassLoader().getResourceAsStream("input.txt");
         int result;
@@ -28,16 +45,7 @@ public class FindWords extends HttpServlet {
         } else {
             resp.getOutputStream().println("Error: failed to load the file");
         }
-    }
 
-    private int countHowManyTimesSubstringMatches(String sourceText, String usersInput) {
-        Pattern p = Pattern.compile(usersInput.toLowerCase());
-        Matcher m = p.matcher(sourceText.toLowerCase());
-        int counter = 0;
 
-        while (m.find()) {
-            counter++;
-        }
-        return counter;
     }
 }

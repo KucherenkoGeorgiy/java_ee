@@ -4,28 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Test JSP</title>
+<title>Find specific orders</title>
 </head>
 <body>
 <jsp:include page="head.jsp"/>
-<p><br />
-Choose the product:</p>
 <p>
-(we will filter orders made today that include this product):</p>
-<p>
-<form action="http://localhost:8080/crm/chooseproductwithfilter" method="post">
-
-    <select name="chooseProduct" required="required" size="1">
-        <c:forEach items="${productList}" var="item">
-            <option value = "${item.getId()}">${item.getName()}</option>
-        </c:forEach>
-    </select>
-	<input name="submitChoosing" type="submit" value="Submit" />
-</form>
-
-&nbsp; &nbsp; &nbsp;
+	Choose the product<br />
+	(we will filter orders made today that include this product):
 </p>
+<p>
+	<form action="http://localhost:8080/crm/chooseproductwithfilter" method="post">
 
-<p>&nbsp;</p>
+		<select name="chooseProduct" required="required" size="1">
+			<c:forEach items="${productList}" var="item">
+				<option value = "${item.getId()}">${item.getName()}</option>
+			</c:forEach>
+		</select>
+		<input name="submitChoosing" type="submit" value="Submit" />
+	</form>
+</p>
 </body>
 </html>

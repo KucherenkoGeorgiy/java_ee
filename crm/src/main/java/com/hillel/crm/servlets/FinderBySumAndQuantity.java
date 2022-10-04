@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 @WebServlet("/finderbysumandquantity")
 public class FinderBySumAndQuantity extends HttpServlet {
@@ -26,8 +25,6 @@ public class FinderBySumAndQuantity extends HttpServlet {
         String infoString = "Below you can find search results for following filters:\n"
                 + " total amount of order is: " + orderSum
                 + " quantity of products is: " + orderQuantity;
-
-        response.setContentType("text/html");
 
         req.setAttribute("listOfOrders", orderServiceForReading.getByTotMaxAndQuantityOfDifGoods(orderSum, orderQuantity));
         req.setAttribute("filtersOfSearch", infoString);

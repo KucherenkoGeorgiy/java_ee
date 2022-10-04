@@ -51,7 +51,11 @@ public class OrderServiceForReading {
         return result;
     }
 
-    public List<Product> getAllProducts (){
+    public List<Product> getAllProducts() {
         return productRepository.getAllProducts();
+    }
+
+    public Product getProductById(int productId) {
+        return productRepository.getProductById(productId);
     }
 }
