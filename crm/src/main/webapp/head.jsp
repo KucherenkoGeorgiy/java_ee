@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<table align="center" border="0" cellpadding="1" cellspacing="1">
-	<tbody>
+<table align="center" border="0" cellpadding="0" cellspacing="0">
+	<tbody bgcolor="#ecf0f1">
 		<tr>
 			<td style="text-align:center">Полная информацию о заданном заказе</td>
 			<td style="text-align:center">Заказы, сумма которых не превосходит заданную, и количество различных товаров равно заданному</td>
