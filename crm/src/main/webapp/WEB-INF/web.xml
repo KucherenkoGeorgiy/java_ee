@@ -4,8 +4,8 @@
          version="5.0">
     <display-name>CRM WEB App</display-name>
     <welcome-file-list>
-        <welcome-file>head.html</welcome-file>
-        <welcome-file>head.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <resource-ref>
         <description>DB Connection</description>
