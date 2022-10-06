@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Detailed Order</title>
+    <meta charset="UTF-8">
+    <title>Detailed Order</title>
 </head>
 <body>
-	<jsp:include page="head.jsp"/>
+	<c:import url="/jspf/head.jspf" />
 	<br>
 	<p>${additionalInfo.toString()}</p>
 	
 	<p>Order # ${detailedOrder.getId()} dated ${detailedOrder.getDate()}</p>
-	
 	<table border="1" cellpadding="3" cellspacing="0" bordercolor="grey">
 		<thead>
 			<tr bgcolor="#ecf0f1">

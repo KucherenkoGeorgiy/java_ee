@@ -1,31 +1,21 @@
 package com.hillel.crm.dbutils.connection;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.*;
-import java.util.Properties;
 
 public class ConnectionProvider {
 
     public static Connection provideConnection() {
-        Properties properties = new Properties();
-
-        try (InputStream is = ConnectionProvider.class.getClassLoader().getResourceAsStream("db.properties")) {
-            properties.load(is);
-        } catch (IOException e) {
-            System.err.println("cannot read properties");
-            return null;
-        }
-
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/schema_orders", properties);
-        } catch (SQLException e) {
-            System.err.println("cannot get connection");
+            Context envContext = (Context) new InitialContext().lookup("java:/comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/schema_orders");
+            return ds.getConnection();
+        } catch (SQLException | NamingException e) {
+            System.err.println("Cannot get connection");
             return null;
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
 }

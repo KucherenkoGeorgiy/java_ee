@@ -3,14 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Choose the product</title>
+    <meta charset="UTF-8">
+    <title>Choose the product</title>
 </head>
 <body>
-	<jsp:include page="head.jsp"/>
-	<p>Choose the product:</p>
+	<c:import url="/jspf/head.jspf" />
 	<p>
-		<form action="http://localhost:8080/crm/chooseproduct" method="post">
+	    Choose the product<br>
+	    (we will find all orders that contain this product)
+	</p>
+	<p>
+		<form action="/crm/chooseproduct" method="post">
 			<select name="chooseProduct" required="required" size="1">
 				<c:forEach items="${productList}" var="item">
 					<option value = "${item.getId()}">${item.getName()}</option>

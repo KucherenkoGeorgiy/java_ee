@@ -3,18 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Find specific orders</title>
+    <meta charset="UTF-8">
+    <title>Find specific orders</title>
 </head>
 <body>
-<jsp:include page="head.jsp"/>
+	<c:import url="/jspf/head.jspf" />
 <p>
 	Choose the product<br />
-	(we will filter orders made today that include this product):
+	(we will find all orders that were made today and do not include this product):
 </p>
 <p>
-	<form action="http://localhost:8080/crm/chooseproductwithfilter" method="post">
-
+	<form action="/crm/chooseproductwithfilter" method="post">
 		<select name="chooseProduct" required="required" size="1">
 			<c:forEach items="${productList}" var="item">
 				<option value = "${item.getId()}">${item.getName()}</option>

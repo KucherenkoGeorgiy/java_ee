@@ -9,24 +9,26 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/test")
+@WebServlet("/chooseorder")
 public class ChooseOrder extends HttpServlet {
+    private OrderServiceForReading orderServiceForReading;
+
+    public ChooseOrder() {
+        orderServiceForReading = new OrderServiceForReading();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
-
         req.setAttribute("testList", orderServiceForReading.getAllOrders());
-        req.getRequestDispatcher("/chooseorder.jsp").forward(req, response);
+        req.getRequestDispatcher("/jsp/chooseorder.jsp").forward(req, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         int orderId = Integer.parseInt(req.getParameter("chooseOrder"));
-        OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
 
         req.setAttribute("additionalInfo", "Below you can find all details of chosen order");
         req.setAttribute("detailedOrder", orderServiceForReading.getDetailedOrderByOrderId(orderId));
-        req.getRequestDispatcher("/orderdetails.jsp").forward(req, response);
+        req.getRequestDispatcher("/jsp/orderdetails.jsp").forward(req, response);
     }
 }

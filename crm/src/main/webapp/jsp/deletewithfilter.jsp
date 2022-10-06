@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Deleting orders</title>
+    <meta charset="UTF-8">
+    <title>Deleting orders</title>
 </head>
 <body>
-	<jsp:include page="head.jsp"/>
+	<c:import url="/jspf/head.jspf" />
 	<p>
 		You are going to delete orders filtered by product and quantity<br />
 		choose the product and quantity of product<br />
 		and push Submit to continue
 	</p>
 	<p>
-		<form action="http://localhost:8080/crm/deleteorders" method="post">
+		<form action="/crm/deleteorders" method="post">
 				<select name="chooseProduct" required="required" size="1">
 					<c:forEach items="${productList}" var="item">
 						<option value = "${item.getId()}">${item.getName()}</option>

@@ -9,9 +9,9 @@ import com.hillel.crm.dbutils.repository.RecordsOfOrderRepository;
 import java.util.List;
 
 public class OrderServiceForEditing {
-    OrdersRepository ordersRepository;
-    RecordsOfOrderRepository recordsOfOrderRepository;
-    Modifier modifier;
+    private OrdersRepository ordersRepository;
+    private RecordsOfOrderRepository recordsOfOrderRepository;
+    private Modifier modifier;
 
 
     public OrderServiceForEditing() {

@@ -14,40 +14,43 @@ import java.util.List;
 
 @WebServlet("/deleteorders")
 public class DeleteOrders extends HttpServlet {
+    private OrderServiceForReading orderServiceForReading;
+    private OrderServiceForEditing orderServiceForEditing;
+
+    public DeleteOrders() {
+        orderServiceForReading = new OrderServiceForReading();
+        orderServiceForEditing = new OrderServiceForEditing();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
-
         req.setAttribute("productList", orderServiceForReading.getAllProducts());
-        req.getRequestDispatcher("/deletewithfilter.jsp").forward(req, response);
+        req.getRequestDispatcher("/jsp/deletewithfilter.jsp").forward(req, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        int productId = Integer.parseInt(req.getParameter("chooseProduct"));
-        int orderQuantity = Integer.parseInt(req.getParameter("chooseQuantity"));
-        OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
-        OrderServiceForEditing orderServiceForEditing = new OrderServiceForEditing();
-        List<Order> deletedOrders = orderServiceForEditing
-                .deleteOrdersThatContainTheProductWithQuantity(productId, orderQuantity);
-        String infoString;
+        try {
+            int productId = Integer.parseInt(req.getParameter("chooseProduct"));
+            int orderQuantity = Integer.parseInt(req.getParameter("chooseQuantity"));
+            List<Order> deletedOrders = orderServiceForEditing
+                    .deleteOrdersThatContainTheProductWithQuantity(productId, orderQuantity);
+            String infoString = "You have chosen following filters for deleting: 1) product name - "
+                    + orderServiceForReading.getProductById(productId).getName()
+                    + ", 2) product quantity - " + orderQuantity;
 
-        if (deletedOrders.size() != 0) {
-            infoString = "Below you can find list of orders that were deleted\n"
-                    + " Filter for deleting is: 1) product name - "
-                    + orderServiceForReading.getAllProducts().stream()
-                    .filter(a -> a.getId() == productId).toList().get(0).getName()
-                    + ", 2) product quantity - " + orderQuantity + ".";
-        } else {
-            infoString = "You have chosen following filters for deleting: 1) product name - "
-                    + orderServiceForReading.getAllProducts().stream()
-                    .filter(a -> a.getId() == productId).toList().get(0).getName()
-                    + ", 2) product quantity - " + orderQuantity + ". And there were NOTHING TO DELETE!";
+            if (deletedOrders.size() != 0) {
+                infoString += ". Below you can find list of orders that were deleted\n";
+            } else {
+                infoString += ". And there were NOTHING TO DELETE!";
+            }
+
+            req.setAttribute("listOfOrders", deletedOrders);
+            req.setAttribute("filtersOfSearch", infoString);
+            req.getRequestDispatcher("/jsp/listoforders.jsp").forward(req, response);
+        } catch (NumberFormatException e) {
+            req.setAttribute("errorInfo", "You have entered incorrect data. You had to enter to Integer");
+            req.getRequestDispatcher("/jsp/errorhappened.jsp").forward(req, response);
         }
-
-        req.setAttribute("listOfOrders", deletedOrders);
-        req.setAttribute("filtersOfSearch", infoString);
-        req.getRequestDispatcher("/listoforders.jsp").forward(req, response);
     }
 }

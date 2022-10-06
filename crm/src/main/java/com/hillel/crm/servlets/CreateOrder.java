@@ -12,20 +12,30 @@ import java.io.IOException;
 
 @WebServlet("/createneworder")
 public class CreateOrder extends HttpServlet {
+    private OrderServiceForReading orderServiceForReading;
+    private OrderServiceForEditing orderServiceForEditing;
+
+    public CreateOrder() {
+        orderServiceForReading = new OrderServiceForReading();
+        orderServiceForEditing = new OrderServiceForEditing();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        req.getRequestDispatcher("/createneworder.jsp").forward(req, response);
+        req.getRequestDispatcher("/jsp/createneworder.jsp").forward(req, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        OrderServiceForEditing orderServiceForEditing = new OrderServiceForEditing();
         int orderId = orderServiceForEditing.addNewOrderWithCurDate();
-        OrderServiceForReading orderServiceForReading = new OrderServiceForReading();
 
-        req.setAttribute("additionalInfo", "New order was created.. Details of new order are below");
-        req.setAttribute("detailedOrder", orderServiceForReading.getDetailedOrderByOrderId(orderId));
-        req.getRequestDispatcher("/orderdetails.jsp").forward(req, response);
+        try {
+            req.setAttribute("additionalInfo", "New order was created.. Details of new order are below");
+            req.setAttribute("detailedOrder", orderServiceForReading.getDetailedOrderByOrderId(orderId));
+            req.getRequestDispatcher("/jsp/orderdetails.jsp").forward(req, response);
+        } catch (NullPointerException e) {
+            req.setAttribute("errorInfo", "Could not create order. Because there are no orders today");
+            req.getRequestDispatcher("/jsp/errorhappened.jsp").forward(req, response);
+        }
     }
 }

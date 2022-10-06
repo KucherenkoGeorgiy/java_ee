@@ -1,7 +1,6 @@
 package com.hillel.crm.dbutils.entity;
 
 import java.sql.Date;
-import com.hillel.crm.dbutils.entity.*;
 import java.util.List;
 
 public class Order {

@@ -2,9 +2,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_5_0.xsd"
          version="5.0">
-    <display-name>Test WEB App</display-name>
+    <display-name>CRM WEB App</display-name>
     <welcome-file-list>
         <welcome-file>head.html</welcome-file>
         <welcome-file>head.jsp</welcome-file>
     </welcome-file-list>
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/schema_orders</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
 </web-app>

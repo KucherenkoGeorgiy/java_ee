@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 <title>Create new order</title>
 </head>
 <body>
-	<jsp:include page="head.jsp"/>
+	<c:import url="/jspf/head.jspf" />
 	<p>
 		You are going to create new order <br />
 		(it will include all goods that were ordered today)
 	</p>
 	<p>
 		push Submit to continue<br />
-			<form action="http://localhost:8080/crm/createneworder" method="post">
+			<form action="/crm/createneworder" method="post">
 				<input name="submitChoosing" type="submit" value="Submit" />
 			</form>
 	</p>

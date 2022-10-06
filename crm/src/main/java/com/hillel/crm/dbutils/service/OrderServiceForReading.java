@@ -9,9 +9,9 @@ import com.hillel.crm.dbutils.repository.ProductRepository;
 import java.util.List;
 
 public class OrderServiceForReading {
-    ProductRepository productRepository;
-    OrdersRepository ordersRepository;
-    RecordsOfOrderRepository recordsOfOrderRepository;
+    private ProductRepository productRepository;
+    private OrdersRepository ordersRepository;
+    private RecordsOfOrderRepository recordsOfOrderRepository;
 
     public OrderServiceForReading() {
         productRepository = new ProductRepository();
@@ -19,7 +19,7 @@ public class OrderServiceForReading {
         recordsOfOrderRepository = new RecordsOfOrderRepository();
     }
 
-    public Order getDetailedOrderByOrderId(int orderID) {
+    public Order getDetailedOrderByOrderId(int orderID) throws NullPointerException {
         Order order = ordersRepository.getNonDetailedOrderByOrderID(orderID);
         order.setRecordsOfOrder(recordsOfOrderRepository.getRecordsOfOrderByOrderID(orderID));
         return order;

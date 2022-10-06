@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<title>Choose the order</title>
 </head>
 <body>
-	<jsp:include page="head.jsp"/>
-	<p>Выбери номер заказа из списка:</p>
+	<c:import url="/jspf/head.jspf" />
+	<p>Choose order from below list:</p>
 	<p>
-		<form action="http://localhost:8080/crm/test" method="post">
+		<form action="/crm/chooseorder" method="post">
 			<select name="chooseOrder" required="required" size="1">
 				<c:forEach items="${testList}" var="item">
 					<option value = "${item.getId()}">${item.getId()} dated ${item.getDate()}</option>
