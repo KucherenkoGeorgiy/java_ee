@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
     <title>Find specific orders</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf" />
+	<c:import url="/jspf/head.jspf"/>
 <p>
 	Choose the product<br />
 	(we will find all orders that were made today and do not include this product):
@@ -19,7 +19,7 @@
 				<option value = "${item.getId()}">${item.getName()}</option>
 			</c:forEach>
 		</select>
-		<input name="submitChoosing" type="submit" value="Submit" />
+		<input name="submitChoosing" type="submit" value="Submit"/>
 	</form>
 </p>
 </body>

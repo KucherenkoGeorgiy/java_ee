@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
     <title>Deleting orders</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf" />
+	<c:import url="/jspf/head.jspf"/>
 	<p>
 		You are going to delete orders filtered by product and quantity<br />
 		choose the product and quantity of product<br />
@@ -21,7 +21,7 @@
 					</c:forEach>
 				</select>
 			<input type="text" name="chooseQuantity" >  input quantity product here<br>
-			<input name="submitChoosing" type="submit" value="Submit" />
+			<input name="submitChoosing" type="submit" value="Submit"/>
 		</form>
 	</p>
 </body>
