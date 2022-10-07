@@ -18,28 +18,28 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${listOfOrders}" var="item">
-				<tr>
-					<td style="text-align:center">${item.getId()}</td>
-					<td style="text-align:center" scope="col" nowrap>${item.getDate()}</td>
-					<td style="text-align:leftchooseorder.jsp">
-						<table border="0" cellpadding="3" cellspacing="0">
+            <c:forEach items="${listOfOrders}" var="item">
+                <tr>
+                    <td style="text-align:center">${item.getId()}</td>
+                    <td style="text-align:center" scope="col" nowrap>${item.getDate()}</td>
+                    <td style="text-align:leftchooseorder.jsp">
+                        <table border="0" cellpadding="3" cellspacing="0">
                             <tbody>
                                 <c:forEach items="${item.getRecordsOfOrder()}" var="recordOfOrder">
-                                     <tr>
-                                          <td style="text-align:left">id=${recordOfOrder.getProduct().getId()};</td>
-                                          <td style="text-align:left">name=${recordOfOrder.getProduct().getName()};</td>
-                                          <td style="text-align:left">describing=${recordOfOrder.getProduct().getDescribing()};</td>
-                                          <td style="text-align:left">price=${recordOfOrder.getProduct().getPrice()};</td>
-                                          <td style="text-align:left">quantity=${recordOfOrder.getQuantityOfProduct()}</td>
-                                     </tr>
+                                    <tr>
+                                        <td style="text-align:left">id=${recordOfOrder.getProduct().getId()};</td>
+                                        <td style="text-align:left">name=${recordOfOrder.getProduct().getName()};</td>
+                                        <td style="text-align:left">describing=${recordOfOrder.getProduct().getDescribing()};</td>
+                                        <td style="text-align:left">price=${recordOfOrder.getProduct().getPrice()};</td>
+                                        <td style="text-align:left">quantity=${recordOfOrder.getQuantityOfProduct()}</td>
+                                    </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
 	</table>
 </body>
 </html>

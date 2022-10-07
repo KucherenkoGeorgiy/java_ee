@@ -1,24 +1,24 @@
 <table align="center" border="0" cellpadding="3" cellspacing="0">
-	<tbody bgcolor="#ecf0f1">
-		<tr>
-			<td style="text-align:center">
-                <a href="/crm/chooseorder">Get full details of order</a>
-			</td>
-			<td style="text-align:center">
-                <a href="/crm/finderbysumandquantity">Get orders where Total do not exceed users amount, and quantity of products is fixed</a>
-			</td>
-			<td style="text-align:center">
-                <a href="/crm/chooseproduct">Get orders that include choosed product</a>
-			</td>
-			<td style="text-align:center">
-                <a href="/crm/chooseproductwithfilter">Get orders that were made today and do not contain product</a>
-			</td>
-			<td style="text-align:center">
-                <a href="/crm/createneworder">Create new order where products are from all todays orders</a>
-			</td>
-			<td style="text-align:center">
-                <a href="/crm/deleteorders">Delete orders which consist inputted product with inputted quantity</a>
-			</td>
-		</tr>
-	</tbody>
+<tbody bgcolor="#ecf0f1">
+    <tr>
+        <td style="text-align:center">
+            <a href="/crm/chooseorder">Get full details of order</a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/finderbysumandquantity">Get orders where Total do not exceed users amount, and quantity of products is fixed</a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/chooseproduct">Get orders that include choosed product</a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/chooseproductwithfilter">Get orders that were made today and do not contain product</a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/createneworder">Create new order where products are from all todays orders</a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/deleteorders">Delete orders which consist inputted product with inputted quantity</a>
+        </td>
+    </tr>
+</tbody>
 </table>
