@@ -7,7 +7,7 @@
     <title>List of Orders</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/><br>
+    <%@ include file="/jspf/head.jspf" %>
 	<p>${filtersOfSearch.toString()}</p>
 	<table border="1" cellpadding="3" cellspacing="0" bordercolor="grey">
 		<thead>

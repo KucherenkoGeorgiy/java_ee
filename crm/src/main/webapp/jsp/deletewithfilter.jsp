@@ -7,7 +7,7 @@
     <title>Deleting orders</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 	<p>
 		You are going to delete orders filtered by product and quantity<br />
 		choose the product and quantity of product<br />

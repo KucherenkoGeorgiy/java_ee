@@ -7,6 +7,6 @@
 <title>CRM</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <title>Find specific orders</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 <p>
 	Choose the product<br />
 	(we will find all orders that were made today and do not include this product):

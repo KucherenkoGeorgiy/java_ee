@@ -7,7 +7,7 @@
     <title>List of Orders</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/><br>
+    <%@ include file="/jspf/head.jspf" %>
 	<p>${errorInfo.toString()}</p>
 </body>
 </html>

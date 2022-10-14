@@ -7,7 +7,7 @@
 	<title>Choose the order</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 	<p>Choose order from below list:</p>
 	<p>
 		<form action="/crm/chooseorder" method="post">

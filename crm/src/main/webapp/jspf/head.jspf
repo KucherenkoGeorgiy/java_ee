@@ -19,6 +19,17 @@
         <td style="text-align:center">
             <a href="/crm/deleteorders">Delete orders which consist inputted product with inputted quantity</a>
         </td>
+        <td style="text-align:center">
+            <c:choose>
+                <c:when test="${not empty user}">
+                    current user = ${user.name}<br>
+                    <a href="/crm/logout">Logout</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/crm/login">Login</a>
+                </c:otherwise>
+            </c:choose>
+        </td>
     </tr>
 </tbody>
 </table>

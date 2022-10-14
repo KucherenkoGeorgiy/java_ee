@@ -7,7 +7,7 @@
     <title>Choose the order</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 	<p>Type max Total and Quantity of goods:</p>
 	<p>
 		<form action="/crm/finderbysumandquantity" method="post">

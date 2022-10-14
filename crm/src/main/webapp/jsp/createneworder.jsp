@@ -7,7 +7,7 @@
 <title>Create new order</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 	<p>
 		You are going to create new order <br />
 		(it will include all goods that were ordered today)

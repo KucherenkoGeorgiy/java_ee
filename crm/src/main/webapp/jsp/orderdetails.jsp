@@ -7,7 +7,7 @@
     <title>Detailed Order</title>
 </head>
 <body>
-	<c:import url="/jspf/head.jspf"/>
+    <%@ include file="/jspf/head.jspf" %>
 	<br>
 	<p>${additionalInfo.toString()}</p>
 	
