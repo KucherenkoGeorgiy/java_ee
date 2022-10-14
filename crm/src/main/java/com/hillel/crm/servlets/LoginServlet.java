@@ -28,7 +28,6 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
-
         Optional<User> found = userService.findByNameAndPassword(name, password);
 
         if (found.isEmpty()) {

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>List of Orders</title>
+    <title>Error!!</title>
 </head>
 <body>
     <%@ include file="/jspf/head.jspf" %>

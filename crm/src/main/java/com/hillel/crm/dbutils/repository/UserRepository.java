@@ -25,8 +25,8 @@ public class UserRepository extends BaseRepository {
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     return Optional.of(new User(resultSet.getInt("id"), resultSet.getString("name"),
-                            resultSet.getString("password"), UserRole.valueOf(resultSet.getString("role"))));
-
+                            resultSet.getString("password"),
+                            UserRole.valueOf(resultSet.getString("role"))));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
