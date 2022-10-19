@@ -1,6 +1,6 @@
-package com.hillel.crm.dbutils.repository;
+package com.hillel.crm.repository;
 
-import com.hillel.crm.dbutils.entity.Order;
+import com.hillel.crm.entity.Order;
 
 import java.util.List;
 

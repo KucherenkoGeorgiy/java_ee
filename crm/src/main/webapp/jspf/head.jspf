@@ -1,8 +1,11 @@
+﻿<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<fmt:setBundle basename="messages"/>
 <table align="center" border="0" cellpadding="3" cellspacing="0">
 <tbody bgcolor="#ecf0f1">
     <tr>
         <td style="text-align:center">
-            <a href="/crm/chooseorder">Get full details of order</a>
+            <a href="/crm/chooseorder"><fmt:message key="header.index"/></a>
         </td>
         <td style="text-align:center">
             <a href="/crm/finderbysumandquantity">Get orders where Total do not exceed users amount, and quantity of products is fixed</a>
@@ -30,6 +33,16 @@
                 </c:otherwise>
             </c:choose>
         </td>
+        <td style="text-align:center">
+            <form action="/crm/language" method="post">
+                <select name="locale">
+                    <option value="en_US">Eng</option>
+                    <option value="ua_UA">Ua</option>
+                </select>
+                <input type="submit">
+            </form>
+        </td>
+
     </tr>
 </tbody>
 </table>

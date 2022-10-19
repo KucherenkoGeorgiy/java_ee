@@ -1,7 +1,7 @@
-package com.hillel.crm.dbutils.repository;
+package com.hillel.crm.repository;
 
-import com.hillel.crm.dbutils.connection.ConnectionProvider;
-import com.hillel.crm.dbutils.util.EntityExtractor;
+import com.hillel.crm.connection.ConnectionProvider;
+import com.hillel.crm.util.EntityExtractor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

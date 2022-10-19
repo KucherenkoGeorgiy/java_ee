@@ -1,4 +1,4 @@
-package com.hillel.crm.dbutils.entity;
+package com.hillel.crm.entity;
 
 import java.sql.Date;
 import java.util.List;

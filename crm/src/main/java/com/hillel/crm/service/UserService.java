@@ -1,7 +1,7 @@
-package com.hillel.crm.dbutils.service;
+package com.hillel.crm.service;
 
-import com.hillel.crm.dbutils.entity.User;
-import com.hillel.crm.dbutils.repository.UserRepository;
+import com.hillel.crm.entity.User;
+import com.hillel.crm.repository.UserRepository;
 
 import java.util.Optional;
 

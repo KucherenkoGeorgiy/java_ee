@@ -1,8 +1,8 @@
 package com.hillel.crm.servlets;
 
-import com.hillel.crm.dbutils.entity.Order;
-import com.hillel.crm.dbutils.service.OrderServiceForEditing;
-import com.hillel.crm.dbutils.service.OrderServiceForReading;
+import com.hillel.crm.entity.Order;
+import com.hillel.crm.service.OrderServiceForEditing;
+import com.hillel.crm.service.OrderServiceForReading;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

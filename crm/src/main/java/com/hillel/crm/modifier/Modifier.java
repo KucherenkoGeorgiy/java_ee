@@ -1,8 +1,8 @@
-package com.hillel.crm.dbutils.modifier;
+package com.hillel.crm.modifier;
 
-import com.hillel.crm.dbutils.connection.ConnectionProvider;
-import com.hillel.crm.dbutils.entity.Order;
-import com.hillel.crm.dbutils.entity.RecordsOfOrder;
+import com.hillel.crm.connection.ConnectionProvider;
+import com.hillel.crm.entity.Order;
+import com.hillel.crm.entity.RecordsOfOrder;
 
 import java.sql.*;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.hillel.crm.dbutils.connection;
+package com.hillel.crm.connection;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

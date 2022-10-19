@@ -1,4 +1,4 @@
-package com.hillel.crm.dbutils.util;
+package com.hillel.crm.util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

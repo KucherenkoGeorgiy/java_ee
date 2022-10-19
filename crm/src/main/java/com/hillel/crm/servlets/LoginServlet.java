@@ -1,7 +1,7 @@
 package com.hillel.crm.servlets;
 
-import com.hillel.crm.dbutils.entity.User;
-import com.hillel.crm.dbutils.service.UserService;
+import com.hillel.crm.entity.User;
+import com.hillel.crm.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

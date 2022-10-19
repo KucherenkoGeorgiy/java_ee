@@ -1,7 +1,7 @@
 package com.hillel.crm.filter;
 
-import com.hillel.crm.dbutils.entity.User;
-import com.hillel.crm.dbutils.entity.UserRole;
+import com.hillel.crm.entity.User;
+import com.hillel.crm.entity.UserRole;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServlet;

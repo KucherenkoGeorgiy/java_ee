@@ -1,8 +1,8 @@
-package com.hillel.crm.dbutils.repository;
+package com.hillel.crm.repository;
 
-import com.hillel.crm.dbutils.connection.ConnectionProvider;
-import com.hillel.crm.dbutils.entity.User;
-import com.hillel.crm.dbutils.entity.UserRole;
+import com.hillel.crm.connection.ConnectionProvider;
+import com.hillel.crm.entity.User;
+import com.hillel.crm.entity.UserRole;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
