@@ -9,13 +9,13 @@
 <body>
     <%@ include file="/jspf/head.jspf" %>
 <p>
-	Type your name and password<br />
+	<fmt:message key="login.top"/><br />
 </p>
 <p>
 	<form action="/crm/login" method="post">
-		<input type="text" name="name" >  input your name here<br>
-		<input type="text" name="password" >  input your password here<br>
-		<input name="submitChoosing" type="submit" value="Login"/>
+		<input type="text" name="name" >  &nbsp;&nbsp;<fmt:message key="login.inputname"/><br>
+		<input type="text" name="password" >  &nbsp;&nbsp;<fmt:message key="login.inputpassword"/><br>
+		<input name="submitChoosing" type="submit" value=<fmt:message key="login.button"/>/>
 	</form>
 	<c:if test="${not empty errorMessage}">
 	    ${errorMessage}

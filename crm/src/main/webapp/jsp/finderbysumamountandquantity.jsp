@@ -4,16 +4,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Choose the order</title>
+    <title>Find by total and quantity of different goods</title>
 </head>
 <body>
     <%@ include file="/jspf/head.jspf" %>
-	<p>Type max Total and Quantity of goods:</p>
+	<p><fmt:message key="finderbysumamountandquantity.top"/></p>
 	<p>
 		<form action="/crm/finderbysumandquantity" method="post">
-			<input type="text" name="chooseSum">input total amount here<br>
-			<input type="text" name="chooseQuantity" >input quantity of different goods here<br>
-			<input name="submitChoosing" type="submit" value="Submit"/>
+			<input type="text" name="chooseSum">&nbsp;<fmt:message key="finderbysumamountandquantity.input1"/><br>
+			<input type="text" name="chooseQuantity" >&nbsp;<fmt:message key="finderbysumamountandquantity.input2"/><br>
+			<input name="submitChoosing" type="submit" value=<fmt:message key="finderbysumamountandquantity.submit"/>/>
 		</form>
 	</p>
 </body>

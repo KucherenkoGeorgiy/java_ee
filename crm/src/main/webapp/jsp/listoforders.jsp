@@ -12,9 +12,9 @@
 	<table border="1" cellpadding="3" cellspacing="0" bordercolor="grey">
 		<thead>
 			<tr bgcolor="#ecf0f1">
-				<th scope="col" nowrap>&nbsp;&nbsp;&nbsp;Order ID&nbsp;&nbsp;&nbsp;</span></th>
-				<th scope="col" nowrap>&nbsp;&nbsp;&nbsp;Date of order&nbsp;&nbsp;&nbsp;</span></th>
-				<th scope="col" nowrap>&nbsp;&nbsp;&nbsp;Order details&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col" nowrap>&nbsp;&nbsp;&nbsp;<fmt:message key="listoforders.table1"/>&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col" nowrap>&nbsp;&nbsp;&nbsp;<fmt:message key="listoforders.table2"/>&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col" nowrap>&nbsp;&nbsp;&nbsp;<fmt:message key="listoforders.table3"/>&nbsp;&nbsp;&nbsp;</span></th>
 			</tr>
 		</thead>
 		<tbody>

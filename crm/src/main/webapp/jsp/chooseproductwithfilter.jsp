@@ -9,8 +9,8 @@
 <body>
     <%@ include file="/jspf/head.jspf" %>
 <p>
-	Choose the product<br />
-	(we will find all orders that were made today and do not include this product):
+	<fmt:message key="chooseproduct.top1"/><br />
+	<fmt:message key="chooseproduct.top2"/>
 </p>
 <p>
 	<form action="/crm/chooseproductwithfilter" method="post">
@@ -19,7 +19,7 @@
 				<option value = "${item.getId()}">${item.getName()}</option>
 			</c:forEach>
 		</select>
-		<input name="submitChoosing" type="submit" value="Submit"/>
+		<input name="submitChoosing" type="submit" value=<fmt:message key="chooseorder.submit"/>/>
 	</form>
 </p>
 </body>

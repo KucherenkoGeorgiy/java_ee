@@ -3,14 +3,14 @@ package com.hillel.crm.servlets;
 import com.hillel.crm.service.OrderServiceForReading;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @WebServlet("/chooseproductwithfilter")
-public class ChooseProductWithFilter extends HttpServlet {
+public class ChooseProductWithFilter extends BaseServlet {
     private OrderServiceForReading orderServiceForReading;
 
     public ChooseProductWithFilter() {
@@ -26,9 +26,8 @@ public class ChooseProductWithFilter extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         int productId = Integer.parseInt(req.getParameter("chooseProduct"));
-        String infoString = "Below you can find search results for following filters: "
-                + "1) orders were made today, \n"
-                + "2) orders mustn't contain product "
+        ResourceBundle rB = getResourceBundle(req);
+        String infoString = rB.getString("chooseproductwithfilter.result") + " "
                 + orderServiceForReading.getProductById(productId).getName();
 
         req.setAttribute("listOfOrders", orderServiceForReading.getOrdersThatDoNotContainTheProductAndContainCurDate(productId));

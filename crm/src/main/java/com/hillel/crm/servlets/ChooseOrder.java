@@ -1,16 +1,17 @@
 package com.hillel.crm.servlets;
 
+import com.hillel.crm.entity.Order;
 import com.hillel.crm.service.OrderServiceForReading;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @WebServlet("/chooseorder")
-public class ChooseOrder extends HttpServlet {
+public class ChooseOrder extends BaseServlet {
     private OrderServiceForReading orderServiceForReading;
 
     public ChooseOrder() {
@@ -26,9 +27,14 @@ public class ChooseOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         int orderId = Integer.parseInt(req.getParameter("chooseOrder"));
+        ResourceBundle rB = getResourceBundle(req);
+        Order order = orderServiceForReading.getDetailedOrderByOrderId(orderId);
+        String additionalInfo2 = rB.getString("orderdetails.order") + " " + order.getId() + " "
+                + rB.getString("orderdetails.dated") + " " + order.getDate();
 
-        req.setAttribute("additionalInfo", "Below you can find all details of chosen order");
-        req.setAttribute("detailedOrder", orderServiceForReading.getDetailedOrderByOrderId(orderId));
+        req.setAttribute("additionalInfo", rB.getString("orderdetails.top"));
+        req.setAttribute("additionalInfo2", additionalInfo2);
+        req.setAttribute("detailedOrder", order);
         req.getRequestDispatcher("/jsp/orderdetails.jsp").forward(req, response);
     }
 }

@@ -9,17 +9,17 @@
 <body>
     <%@ include file="/jspf/head.jspf" %>
 	<br>
-	<p>${additionalInfo.toString()}</p>
+	<p>${additionalInfo}</p>
 	
-	<p>Order # ${detailedOrder.getId()} dated ${detailedOrder.getDate()}</p>
+	<p>${additionalInfo2}</p>
 	<table border="1" cellpadding="3" cellspacing="0" bordercolor="grey">
 		<thead>
 			<tr bgcolor="#ecf0f1">
-				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;Short name&nbsp;&nbsp;&nbsp;</span></th>
-				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;Fool name&nbsp;&nbsp;&nbsp;</span></th>
-				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;</span></th>
-				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;Quantity&nbsp;&nbsp;&nbsp;</span></th>
-				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;Total&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;<fmt:message key="orderdetails.table1"/>&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;<fmt:message key="orderdetails.table2"/>&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;<fmt:message key="orderdetails.table3"/>&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;<fmt:message key="orderdetails.table4"/>&nbsp;&nbsp;&nbsp;</span></th>
+				<th scope="col"><span style="background-color:#ecf0f1">&nbsp;&nbsp;&nbsp;<fmt:message key="orderdetails.table5"/>&nbsp;&nbsp;&nbsp;</span></th>
 			</tr>
 		</thead>
 		<tbody>

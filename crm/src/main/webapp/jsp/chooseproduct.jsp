@@ -4,13 +4,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Choose the product</title>
+    <title>Choose product</title>
 </head>
 <body>
     <%@ include file="/jspf/head.jspf" %>
 	<p>
-	    Choose the product<br>
-	    (we will find all orders that contain this product)
+	    <fmt:message key="chooseproduct.top1"/><br>
+	    <fmt:message key="chooseproduct.top2"/>
 	</p>
 	<p>
 		<form action="/crm/chooseproduct" method="post">
@@ -19,7 +19,7 @@
 					<option value = "${item.getId()}">${item.getName()}</option>
 				</c:forEach>
 			</select>
-			<input name="submitChoosing" type="submit" value="Submit"/>
+			<input name="submitChoosing" type="submit" value=<fmt:message key="chooseorder.submit"/>/>
 		</form>
 	</p>
 </body>

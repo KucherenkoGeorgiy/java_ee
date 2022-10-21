@@ -9,9 +9,9 @@
 <body>
     <%@ include file="/jspf/head.jspf" %>
 	<p>
-		You are going to delete orders filtered by product and quantity<br />
-		choose the product and quantity of product<br />
-		and push Submit to continue
+		<fmt:message key="deletewithfilter.top1"/><br />
+		<fmt:message key="deletewithfilter.top2"/><br />
+		<fmt:message key="deletewithfilter.top3"/>
 	</p>
 	<p>
 		<form action="/crm/deleteorders" method="post">
@@ -20,8 +20,8 @@
 						<option value = "${item.getId()}">${item.getName()}</option>
 					</c:forEach>
 				</select>
-			<input type="text" name="chooseQuantity" >  input quantity product here<br>
-			<input name="submitChoosing" type="submit" value="Submit"/>
+			<input type="text" name="chooseQuantity" >&nbsp;&nbsp;<fmt:message key="deletewithfilter.inputquantity"/><br>
+			<input name="submitChoosing" type="submit" value=<fmt:message key="deletewithfilter.button"/>/>
 		</form>
 	</p>
 </body>

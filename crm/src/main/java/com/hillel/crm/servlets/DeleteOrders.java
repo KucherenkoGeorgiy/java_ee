@@ -11,9 +11,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 
 @WebServlet("/deleteorders")
-public class DeleteOrders extends HttpServlet {
+public class DeleteOrders extends BaseServlet {
     private OrderServiceForReading orderServiceForReading;
     private OrderServiceForEditing orderServiceForEditing;
 
@@ -30,26 +31,28 @@ public class DeleteOrders extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+        ResourceBundle rB = getResourceBundle(req);
+
         try {
             int productId = Integer.parseInt(req.getParameter("chooseProduct"));
             int orderQuantity = Integer.parseInt(req.getParameter("chooseQuantity"));
             List<Order> deletedOrders = orderServiceForEditing
                     .deleteOrdersThatContainTheProductWithQuantity(productId, orderQuantity);
-            String infoString = "You have chosen following filters for deleting: 1) product name - "
+            String infoString = rB.getString("deletewithfilter.result1")
                     + orderServiceForReading.getProductById(productId).getName()
-                    + ", 2) product quantity - " + orderQuantity;
+                    + rB.getString("deletewithfilter.result2") + " " + orderQuantity;
 
             if (deletedOrders.size() != 0) {
-                infoString += ". Below you can find list of orders that were deleted\n";
+                infoString += rB.getString("deletewithfilter.resultfinal");
             } else {
-                infoString += ". And there were NOTHING TO DELETE!";
+                infoString += rB.getString("deletewithfilter.resultnothing");
             }
 
             req.setAttribute("listOfOrders", deletedOrders);
             req.setAttribute("filtersOfSearch", infoString);
             req.getRequestDispatcher("/jsp/listoforders.jsp").forward(req, response);
         } catch (NumberFormatException e) {
-            req.setAttribute("errorInfo", "You have entered incorrect data. You had to enter to Integer");
+            req.setAttribute("errorInfo", rB.getString("error.deleteorder"));
             req.getRequestDispatcher("/jsp/errorhappened.jsp").forward(req, response);
         }
     }

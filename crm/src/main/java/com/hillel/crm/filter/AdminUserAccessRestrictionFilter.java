@@ -2,15 +2,18 @@ package com.hillel.crm.filter;
 
 import com.hillel.crm.entity.User;
 import com.hillel.crm.entity.UserRole;
+import com.hillel.crm.servlets.BaseServlet;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 @WebFilter({"/deleteorders", "/createneworder"})
-public class AdminUserAccessRestrictionFilter extends HttpServlet implements Filter {
+public class AdminUserAccessRestrictionFilter extends BaseServlet implements Filter {
     private static final String METHOD_GET = "GET";
     private static final String METHOD_POST = "POST";
 
@@ -30,8 +33,9 @@ public class AdminUserAccessRestrictionFilter extends HttpServlet implements Fil
             if (user != null && UserRole.ADMIN == user.getUserRole()) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
+                ResourceBundle rB = getResourceBundle(httpServletRequest);
                 httpServletRequest.setAttribute("errorInfo",
-                        "You don't have rights to do it");
+                        rB.getString("filter.error"));
                 httpServletRequest.getRequestDispatcher("/jsp/errorhappened.jsp").forward(servletRequest, servletResponse);
             }
         }

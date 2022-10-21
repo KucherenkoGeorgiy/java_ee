@@ -4,19 +4,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<title>Choose the order</title>
+	<title>Choose order</title>
 </head>
 <body>
     <%@ include file="/jspf/head.jspf" %>
-	<p>Choose order from below list:</p>
+	<p><fmt:message key="chooseorder.top"/></p>
 	<p>
 		<form action="/crm/chooseorder" method="post">
 			<select name="chooseOrder" required="required" size="1">
 				<c:forEach items="${testList}" var="item">
-					<option value = "${item.getId()}">${item.getId()} dated ${item.getDate()}</option>
+					<option value = "${item.getId()}">${item.getId()}&nbsp;<fmt:message key="chooseorder.list"/>&nbsp;${item.getDate()}</option>
 				</c:forEach>
 			</select>
-			<input name="submitChoosing" type="submit" value="Submit"/>
+			<input name="submitChoosing" type="submit" value=<fmt:message key="chooseorder.submit"/>/>
 		</form>
 	</p>
 </body>

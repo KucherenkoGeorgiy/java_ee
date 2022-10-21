@@ -9,13 +9,13 @@
 <body>
     <%@ include file="/jspf/head.jspf" %>
 	<p>
-		You are going to create new order <br />
-		(it will include all goods that were ordered today)
+		<fmt:message key="createneworder.top1"/><br />
+		<fmt:message key="createneworder.top2"/>
 	</p>
 	<p>
-		push Submit to continue<br />
+		<fmt:message key="createneworder.top3"/><br />
 		<form action="/crm/createneworder" method="post">
-			<input name="submitChoosing" type="submit" value="Submit"/>
+			<input name="submitChoosing" type="submit" value=<fmt:message key="createneworder.button"/>/>
 		</form>
 	</p>
 </body>

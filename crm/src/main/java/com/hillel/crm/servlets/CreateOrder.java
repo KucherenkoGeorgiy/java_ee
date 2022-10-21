@@ -4,14 +4,14 @@ import com.hillel.crm.service.OrderServiceForEditing;
 import com.hillel.crm.service.OrderServiceForReading;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @WebServlet("/createneworder")
-public class CreateOrder extends HttpServlet {
+public class CreateOrder extends BaseServlet {
     private OrderServiceForReading orderServiceForReading;
     private OrderServiceForEditing orderServiceForEditing;
 
@@ -28,13 +28,14 @@ public class CreateOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         int orderId = orderServiceForEditing.addNewOrderWithCurDate();
+        ResourceBundle rB = getResourceBundle(req);
 
         try {
-            req.setAttribute("additionalInfo", "New order was created.. Details of new order are below");
+            req.setAttribute("additionalInfo", rB.getString("createneworder.created"));
             req.setAttribute("detailedOrder", orderServiceForReading.getDetailedOrderByOrderId(orderId));
             req.getRequestDispatcher("/jsp/orderdetails.jsp").forward(req, response);
         } catch (NullPointerException e) {
-            req.setAttribute("errorInfo", "Could not create order. Because there are no orders today");
+            req.setAttribute("errorInfo", rB.getString("error.cannotcreateorder"));
             req.getRequestDispatcher("/jsp/errorhappened.jsp").forward(req, response);
         }
     }
