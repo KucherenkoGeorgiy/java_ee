@@ -1,0 +1,49 @@
+﻿<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<fmt:setBundle basename="messages"/>
+<table align="center" border="0" cellpadding="3" cellspacing="0">
+<tbody bgcolor="#ecf0f1">
+    <tr>
+        <td style="text-align:center">
+            <a href="/crm/chooseorder"><fmt:message key="head.menu1"/></a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/finderbysumandquantity"><fmt:message key="head.menu2"/></a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/chooseproduct"><fmt:message key="head.menu3"/></a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/chooseproductwithfilter"><fmt:message key="head.menu4"/></a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/createneworder"><fmt:message key="head.menu5"/></a>
+        </td>
+        <td style="text-align:center">
+            <a href="/crm/deleteorders"><fmt:message key="head.menu6"/></a>
+        </td>
+        <td style="text-align:center">
+            <c:choose>
+                <c:when test="${not empty user}">
+                    current user = ${user.name}<br>
+                    <a href="/crm/logout"><fmt:message key="head.menu8"/></a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/crm/login"><fmt:message key="head.menu7"/></a>
+                </c:otherwise>
+            </c:choose>
+        </td>
+        <td style="text-align:center">
+            <form action="/crm/language" method="post">
+                <select name="locale">
+                    <option value="en_US">Eng</option>
+                    <option value="ua_UA">Ua</option>
+                    <option value="ru_RU">Ru</option>
+                </select>
+                <input type="submit" value=<fmt:message key="head.menu9"/>>
+            </form>
+        </td>
+
+    </tr>
+</tbody>
+</table>
