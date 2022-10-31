@@ -20,7 +20,6 @@ public class OrdersRepository extends BaseRepository<Order> {
             where m.id = o.id and p.id=:ida)
             and o.date=CURDATE()""";
 
-
     private static final String HQL_GET_ORDER_BY_ID = "select o from Order o where o.id = :ida";
     private static final String HQL_GET_ALL_ORDERS = "select o from Order o";
     private static final String HQL_GET_ALL_ORDERS_FROM_TODAY = "select o from Order o where o.date=curdate()";

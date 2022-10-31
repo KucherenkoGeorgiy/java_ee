@@ -20,14 +20,11 @@ public class OrderServiceForReading {
     }
 
     public Order getDetailedOrderByOrderId(int orderID) throws NullPointerException {
-        Order order = ordersRepository.getDetailedOrderByOrderID(orderID);
-        return order;
+        return ordersRepository.getDetailedOrderByOrderID(orderID);
     }
 
     public List<Order> getByTotMaxAndQuantityOfDifGoods(int totalAmount, int quantityOfDifferentGoods) {
-        List<Order> result = ordersRepository
-                .getNonDetOrdersByMaxTotalAndQuantityOfDifferentGoods(totalAmount, quantityOfDifferentGoods);
-        return result;
+        return ordersRepository.getNonDetOrdersByMaxTotalAndQuantityOfDifferentGoods(totalAmount, quantityOfDifferentGoods);
     }
 
     public List<Order> getAllOrders() {
